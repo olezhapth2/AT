@@ -2925,7 +2925,6 @@ body.menu-open { overflow: hidden; }
 
       <div class="founder-grid">
         <div>
-          <div class="founder-name appear appear--mask" style="--d:0.3s">Привет. Я Артём Тонников.</div>
           <p class="founder-body appear appear--soft" style="--d:0.4s">
             Мы строим не разовые продажи франшизы. Мы создаём <strong>сеть партнёров</strong>, которые работают внутри одной системы и вместе увеличивают её масштаб.
           </p>
@@ -3280,7 +3279,7 @@ function submitForm(e) {
     var isMobile = vh < 800;
     for (var i = 0; i < els.length; i++) {
       var el = els[i];
-      if (el.closest('.bento-grid')) {
+      if (el.closest('.bento-grid') || el.closest('.scale-bento')) {
         el.style.filter = '';
         el.style.opacity = '';
         continue;
