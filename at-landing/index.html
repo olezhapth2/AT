@@ -7,7 +7,7 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cg transform='rotate(-30 12 12)'%3E%3Ccircle cx='7.3' cy='3.2' r='1.45'/%3E%3Crect x='5.5' y='4.7' width='3.6' height='14.6' rx='1.8'/%3E%3Crect x='14.9' y='4.7' width='3.6' height='14.6' rx='1.8'/%3E%3Ccircle cx='16.7' cy='20.8' r='1.45'/%3E%3C/g%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900&family=Instrument+Serif:ital@1&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Manrope:wght@200..800&family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&family=Merriweather:ital,wght@0,300..900;1,300..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap" rel="stylesheet">
 <style>
 html, body { background: #000000 !important; color: #ffffff; }
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -31,6 +31,19 @@ html, body { background: #000000; background: var(--bg, #000000); color: #ffffff
   --section-gap: 120px;
   --content-max: 1120px;
   --content-pad: 40px;
+  --hero-title-size: 56px;
+  --section-title-size: 40px;
+  --section-sub-size: 16px;
+  --card-title-size: 14px;
+  --card-text-size: 14px;
+  --body-size: 16px;
+  --small-size: 13px;
+  --tiny-size: 11px;
+  --line-height-title: 1.15;
+  --line-height-body: 1.6;
+  --letter-spacing-title: -0.02em;
+  --section-padding: 120px;
+  --card-padding: 28px;
 }
 
 body {
@@ -305,7 +318,9 @@ section {
   filter: drop-shadow(0 0 4px rgba(255,255,255,0.3));
 }
 .hero h1 {
-  font-size: 56px;
+  font-size: var(--hero-title-size, 56px);
+  line-height: var(--line-height-title, 1.15);
+  letter-spacing: var(--letter-spacing-title, -0.02em);
   line-height: 64px;
   font-weight: 700;
   letter-spacing: -0.02em;
@@ -487,10 +502,10 @@ section {
 
 /* ── Section: Problem ── */
 .problem-headline {
-  font-size: 40px;
-  line-height: 48px;
+  font-size: var(--section-title-size, 40px);
+  line-height: var(--line-height-title, 1.15);
   font-weight: 700;
-  letter-spacing: -0.02em;
+  letter-spacing: var(--letter-spacing-title, -0.02em);
   color: #fff;
   margin-bottom: 40px;
 }
@@ -2037,11 +2052,189 @@ body.menu-open .menu-backdrop { opacity: 1; visibility: visible; backdrop-filter
 body.menu-open .header-nav { display: flex; flex-direction: column; position: fixed; inset: 0; z-index: 45; background: transparent; align-items: center; justify-content: center; gap: 12px; padding: 96px 22px 32px; }
 body.menu-open .nav-pill { width: 100%; height: 56px; font-size: 19px; border-radius: 10px; }
 body.menu-open { overflow: hidden; }
+
+/* ── Font Switcher ── */
+.font-switcher {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  z-index: 999;
+  display: flex;
+  gap: 6px;
+}
+.font-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.15);
+  background: rgba(0,0,0,0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: rgba(255,255,255,0.5);
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.font-btn:hover { border-color: rgba(255,255,255,0.3); color: #fff; }
+.font-btn.active {
+  background: rgba(255,255,255,0.12);
+  border-color: rgba(255,255,255,0.4);
+  color: #fff;
+}
+.font-btn-settings {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 999;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.15);
+  background: rgba(0,0,0,0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: rgba(255,255,255,0.5);
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.font-btn-settings:hover { border-color: rgba(255,255,255,0.3); color: #fff; }
+
+/* ── Typography Settings Panel ── */
+.type-panel {
+  position: fixed;
+  top: 0;
+  right: -380px;
+  width: 360px;
+  height: 100vh;
+  background: rgba(10,12,11,0.95);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-left: 1px solid rgba(255,255,255,0.08);
+  z-index: 1000;
+  overflow-y: auto;
+  padding: 24px;
+  transition: right 0.35s cubic-bezier(0.16,1,0.3,1);
+}
+.type-panel.open { right: 0; }
+.type-panel h3 {
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(255,255,255,0.4);
+  margin-bottom: 16px;
+  margin-top: 24px;
+}
+.type-panel h3:first-child { margin-top: 0; }
+.type-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+.type-row label {
+  font-size: 13px;
+  color: rgba(255,255,255,0.6);
+}
+.type-row input[type="range"] {
+  width: 120px;
+  height: 4px;
+  -webkit-appearance: none;
+  appearance: none;
+  background: rgba(255,255,255,0.1);
+  border-radius: 2px;
+  outline: none;
+}
+.type-row input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #fff;
+  cursor: pointer;
+}
+.type-row .type-val {
+  font-size: 12px;
+  color: rgba(255,255,255,0.35);
+  min-width: 36px;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+.type-reset {
+  width: 100%;
+  margin-top: 20px;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: transparent;
+  color: rgba(255,255,255,0.5);
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.type-reset:hover { border-color: rgba(255,255,255,0.3); color: #fff; }
+.type-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 999;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s;
+}
+.type-backdrop.open { opacity: 1; visibility: visible; }
 </style>
 </head>
 <body>
 
 <div class="grain"></div>
+
+<!-- Font Switcher -->
+<div class="font-switcher" id="fontSwitcher">
+  <button class="font-btn active" data-pair="0" title="Inter + Instrument Serif">Aa</button>
+  <button class="font-btn" data-pair="1" title="Playfair Display + Inter">Bb</button>
+  <button class="font-btn" data-pair="2" title="Manrope + Cormorant Garamond">Cc</button>
+  <button class="font-btn" data-pair="3" title="DM Sans + Noto Serif">Dd</button>
+  <button class="font-btn" data-pair="4" title="Source Sans 3 + Merriweather">Ee</button>
+</div>
+
+<!-- Typography Settings -->
+<div class="type-backdrop" id="typeBackdrop"></div>
+<button class="font-btn-settings" id="typeToggle" title="Настройки типографики">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+</button>
+<div class="type-panel" id="typePanel">
+  <h3>Заголовки</h3>
+  <div class="type-row"><label>Hero</label><input type="range" min="32" max="80" value="56" data-var="--hero-title-size"><span class="type-val">56px</span></div>
+  <div class="type-row"><label>Секция</label><input type="range" min="24" max="60" value="40" data-var="--section-title-size"><span class="type-val">40px</span></div>
+  <div class="type-row"><label>Карточка</label><input type="range" min="11" max="20" value="14" data-var="--card-title-size"><span class="type-val">14px</span></div>
+
+  <h3>Текст</h3>
+  <div class="type-row"><label>Подзаголовок</label><input type="range" min="12" max="24" value="16" data-var="--section-sub-size"><span class="type-val">16px</span></div>
+  <div class="type-row"><label>Тело</label><input type="range" min="12" max="20" value="16" data-var="--body-size"><span class="type-val">16px</span></div>
+  <div class="type-row"><label>Мелкий</label><input type="range" min="10" max="16" value="13" data-var="--small-size"><span class="type-val">13px</span></div>
+  <div class="type-row"><label>Микро</label><input type="range" min="8" max="14" value="11" data-var="--tiny-size"><span class="type-val">11px</span></div>
+
+  <h3>Интерлиньяж</h3>
+  <div class="type-row"><label>Заголовки</label><input type="range" min="100" max="140" value="115" data-var="--line-height-title" data-div="100"><span class="type-val">1.15</span></div>
+  <div class="type-row"><label>Текст</label><input type="range" min="120" max="200" value="160" data-var="--line-height-body" data-div="100"><span class="type-val">1.60</span></div>
+
+  <h3>Трекинг</h3>
+  <div class="type-row"><label>Заголовки</label><input type="range" min="-50" max="20" value="-20" data-var="--letter-spacing-title" data-div="1000"><span class="type-val">-0.02em</span></div>
+
+  <h3>Отступы</h3>
+  <div class="type-row"><label>Секции</label><input type="range" min="60" max="180" value="120" data-var="--section-padding"><span class="type-val">120px</span></div>
+  <div class="type-row"><label>Карточки</label><input type="range" min="16" max="48" value="28" data-var="--card-padding"><span class="type-val">28px</span></div>
+
+  <button class="type-reset" id="typeReset">Сбросить всё</button>
+</div>
 
 <div class="page">
   <div class="menu-backdrop"></div>
@@ -2959,6 +3152,97 @@ function submitForm(e) {
     btn.disabled = false;
   });
 }
+</script>
+<script>
+// ── Font Pairs ──
+var fontPairs = [
+  { ui: 'Inter', serif: 'Instrument Serif', label: 'Inter + Instrument' },
+  { ui: 'Inter', serif: 'Playfair Display', label: 'Inter + Playfair' },
+  { ui: 'Manrope', serif: 'Cormorant Garamond', label: 'Manrope + Cormorant' },
+  { ui: 'DM Sans', serif: 'Noto Serif', label: 'DM Sans + Noto Serif' },
+  { ui: 'Source Sans 3', serif: 'Merriweather', label: 'Source Sans + Merriweather' }
+];
+
+var savedPair = parseInt(localStorage.getItem('at-font-pair') || '0');
+applyFontPair(savedPair);
+
+document.getElementById('fontSwitcher').addEventListener('click', function(e) {
+  var btn = e.target.closest('.font-btn');
+  if (!btn) return;
+  var idx = parseInt(btn.dataset.pair);
+  applyFontPair(idx);
+  localStorage.setItem('at-font-pair', idx);
+});
+
+function applyFontPair(idx) {
+  var pair = fontPairs[idx];
+  document.documentElement.style.setProperty('--font-ui', '"' + pair.ui + '", system-ui, sans-serif');
+  document.documentElement.style.setProperty('--font-serif', '"' + pair.serif + '", serif');
+  var btns = document.querySelectorAll('.font-btn');
+  btns.forEach(function(b, i) {
+    b.classList.toggle('active', i === idx);
+  });
+}
+
+// ── Typography Panel ──
+var typePanel = document.getElementById('typePanel');
+var typeBackdrop = document.getElementById('typeBackdrop');
+var typeToggle = document.getElementById('typeToggle');
+var typeReset = document.getElementById('typeReset');
+
+typeToggle.addEventListener('click', function() {
+  typePanel.classList.toggle('open');
+  typeBackdrop.classList.toggle('open');
+});
+typeBackdrop.addEventListener('click', function() {
+  typePanel.classList.remove('open');
+  typeBackdrop.classList.remove('open');
+});
+
+var savedType = JSON.parse(localStorage.getItem('at-type') || '{}');
+Object.keys(savedType).forEach(function(key) {
+  document.documentElement.style.setProperty(key, savedType[key]);
+  var input = document.querySelector('[data-var="' + key + '"]');
+  if (input) {
+    input.value = parseFloat(savedType[key]) * (input.dataset.div || 1);
+    updateTypeVal(input);
+  }
+});
+
+document.querySelectorAll('.type-row input[type="range"]').forEach(function(input) {
+  input.addEventListener('input', function() {
+    var varName = this.dataset.var;
+    var div = parseFloat(this.dataset.div) || 1;
+    var val = this.value / div;
+    var unit = div > 1 ? 'em' : 'px';
+    document.documentElement.style.setProperty(varName, val + unit);
+    updateTypeVal(this);
+    saveType();
+  });
+});
+
+function updateTypeVal(input) {
+  var div = parseFloat(input.dataset.div) || 1;
+  var val = input.value / div;
+  var unit = div > 1 ? 'em' : 'px';
+  input.nextElementSibling.textContent = val + unit;
+}
+
+function saveType() {
+  var data = {};
+  document.querySelectorAll('.type-row input[type="range"]').forEach(function(input) {
+    var div = parseFloat(input.dataset.div) || 1;
+    var val = input.value / div;
+    var unit = div > 1 ? 'em' : 'px';
+    data[input.dataset.var] = val + unit;
+  });
+  localStorage.setItem('at-type', JSON.stringify(data));
+}
+
+typeReset.addEventListener('click', function() {
+  localStorage.removeItem('at-type');
+  location.reload();
+});
 </script>
 </body>
 </html>
