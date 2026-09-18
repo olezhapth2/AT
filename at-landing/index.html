@@ -1058,54 +1058,157 @@ section {
 }
 .bento-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 12px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
   text-align: left;
 }
 .bento-card {
-  background: var(--card-bg);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 24px;
-  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 220px;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 -20px 80px -20px rgba(255,255,255,0.06) inset, 0 0 0 1px rgba(255,255,255,0.04);
+  transition: all 0.4s cubic-bezier(0.16,1,0.3,1);
+  transform: translateZ(0);
 }
 .bento-card:hover {
-  border-color: rgba(255,255,255,0.2);
-  transform: translateY(-2px);
+  border-color: rgba(255,255,255,0.15);
+  transform: translateY(-4px);
+  box-shadow: 0 -20px 80px -20px rgba(255,255,255,0.1) inset, 0 0 0 1px rgba(255,255,255,0.08), 0 12px 40px rgba(0,0,0,0.4);
 }
-.bento-tall { grid-row: span 2; }
-.bento-glow { background: var(--card-glow-bg); border-color: rgba(255,255,255,0.08); }
-.bento-num {
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  color: var(--muted);
-  margin-bottom: 12px;
+.bento-card-bg {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.15;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  transform: scale(0.92);
+  mask-image: linear-gradient(to top, transparent 20%, #000 100%);
+  -webkit-mask-image: linear-gradient(to top, transparent 20%, #000 100%);
+}
+.bento-card:hover .bento-card-bg {
+  opacity: 0.25;
+  transform: scale(1);
+}
+.bento-card-icon {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.08);
+  color: rgba(255,255,255,0.5);
+  transition: all 0.3s ease;
+}
+.bento-card:hover .bento-card-icon {
+  background: rgba(255,255,255,0.1);
+  color: #fff;
+  transform: scale(1.05);
+}
+.bento-card-content {
+  position: relative;
+  z-index: 2;
+  padding: 24px;
 }
 .bento-card h3 {
-  font-size: 14px;
-  font-weight: 700;
-  letter-spacing: 0.04em;
+  font-size: 16px;
+  font-weight: 600;
   color: #fff;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
+  transition: transform 0.3s ease;
+}
+.bento-card:hover h3 {
+  transform: translateY(-2px);
 }
 .bento-card p {
   font-size: 13px;
-  color: var(--muted);
+  color: rgba(255,255,255,0.5);
   line-height: 1.5;
+  transition: color 0.3s ease;
+}
+.bento-card:hover p {
+  color: rgba(255,255,255,0.65);
+}
+.bento-card-cta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 12px;
+  font-size: 12px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.3);
+  opacity: 0;
+  transform: translateY(8px);
+  transition: all 0.3s ease;
+}
+.bento-card:hover .bento-card-cta {
+  opacity: 1;
+  transform: translateY(0);
+}
+.bento-card-cta svg {
+  width: 14px;
+  height: 14px;
+  transition: transform 0.2s ease;
+}
+.bento-card:hover .bento-card-cta svg {
+  transform: translateX(3px);
+}
+.bento-span-2 { grid-column: span 2; }
+.bento-span-row { grid-row: span 2; min-height: 456px; }
+.bento-glow {
+  background: rgba(255,255,255,0.03);
+  border-color: rgba(255,255,255,0.1);
 }
 .bento-stat {
-  font-size: 48px;
+  font-size: 56px;
   font-weight: 800;
   color: #fff;
-  letter-spacing: -0.03em;
-  margin-top: 16px;
+  letter-spacing: -0.04em;
   line-height: 1;
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  opacity: 0.12;
+  transition: opacity 0.3s ease;
 }
+.bento-card:hover .bento-stat { opacity: 0.2; }
 .bento-stat-label {
   font-size: 12px;
   color: var(--muted);
-  margin-top: 4px;
+  position: absolute;
+  top: 88px;
+  right: 24px;
+  opacity: 0.5;
+}
+.bento-orb {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,255,255,0.12) 0%, transparent 70%);
+  filter: blur(40px);
+}
+.bento-lines { width: 100%; height: 100%; }
+.bento-lines line { stroke: rgba(255,255,255,0.08); stroke-width: 1; }
+.bento-dots { width: 100%; height: 100%; }
+.bento-dots circle { fill: rgba(255,255,255,0.06); }
+@media (max-width: 768px) {
+  .bento-grid { grid-template-columns: 1fr; }
+  .bento-span-2 { grid-column: span 1; }
+  .bento-span-row { grid-row: span 1; min-height: 220px; }
+  .bento-card-cta { opacity: 1; transform: translateY(0); }
 }
 
 .scale-bottom {
@@ -2391,9 +2494,8 @@ body.menu-open { overflow: hidden; }
   </section>
 
   <!-- МАСШТАБ -->
-  <section class="scale-section bg-zoom" style="background-image: url('bg-7.jpg'); background-position: center bottom 25%; background-repeat: no-repeat; position: relative;">
-    <div style="position: absolute; inset: 0; background: rgba(0,0,0,0.75); z-index: 0;"></div>
-    <div class="scale-inner" style="position: relative; z-index: 1;">
+  <section class="scale-section">
+    <div class="scale-inner">
 
       <div class="scale-label appear" style="--d:0.1s">03</div>
       <h2 class="scale-headline appear" style="--d:0.2s">
@@ -2440,43 +2542,107 @@ body.menu-open { overflow: hidden; }
       <div class="scale-bento appear" style="--d:0.6s">
         <div class="scale-bento-label">ПРЕИМУЩЕСТВА НАШЕЙ МОДЕЛИ</div>
         <div class="bento-grid">
-          <div class="bento-card bento-glow">
-            <div class="bento-num">01</div>
-            <h3>ИИ-поиск</h3>
-            <p>Система анализирует тысячи компаний и находит тех, кому реально нужна техника</p>
+
+          <div class="bento-card bento-span-2">
+            <div class="bento-card-bg">
+              <svg class="bento-lines" viewBox="0 0 400 200"><line x1="20" y1="100" x2="380" y2="100"/><line x1="100" y1="20" x2="100" y2="180"/><line x1="200" y1="40" x2="200" y2="160"/><line x1="300" y1="30" x2="300" y2="170"/><line x1="40" y1="60" x2="360" y2="60"/><line x1="40" y1="140" x2="360" y2="140"/></svg>
+            </div>
+            <div class="bento-card-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+            </div>
+            <div class="bento-card-content">
+              <h3>ИИ-поиск клиентов</h3>
+              <p>Система анализирует тысячи компаний и находит тех, кому реальна нужна техника</p>
+              <div class="bento-card-cta">Подробнее <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+            </div>
           </div>
+
           <div class="bento-card">
-            <div class="bento-num">02</div>
-            <h3>Автоматизация</h3>
-            <p>Робот обрабатывает входящие заявки 24/7 без выходных и больничных</p>
+            <div class="bento-card-bg">
+              <div class="bento-orb"></div>
+            </div>
+            <div class="bento-card-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            </div>
+            <div class="bento-card-content">
+              <h3>Автоматизация</h3>
+              <p>Робот обрабатывает входящие 24/7 без выходных</p>
+              <div class="bento-card-cta">Подробнее <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+            </div>
           </div>
-          <div class="bento-card bento-glow">
-            <div class="bento-num">03</div>
-            <h3>Квалификация</h3>
-            <p>ИИ отсеивает неподходящих и оставляет только горячих клиентов</p>
-          </div>
+
           <div class="bento-card">
-            <div class="bento-num">04</div>
-            <h3>Масштаб</h3>
-            <p>Один франчайзи обрабатывает объём, на который раньше нужен отдел из 5 человек</p>
+            <div class="bento-card-bg">
+              <svg class="bento-dots" viewBox="0 0 200 200"><circle cx="20" cy="20" r="2"/><circle cx="60" cy="20" r="2"/><circle cx="100" cy="20" r="2"/><circle cx="140" cy="20" r="2"/><circle cx="180" cy="20" r="2"/><circle cx="20" cy="60" r="2"/><circle cx="60" cy="60" r="2"/><circle cx="100" cy="60" r="2"/><circle cx="140" cy="60" r="2"/><circle cx="180" cy="60" r="2"/><circle cx="20" cy="100" r="2"/><circle cx="60" cy="100" r="2"/><circle cx="100" cy="100" r="2"/><circle cx="140" cy="100" r="2"/><circle cx="180" cy="100" r="2"/><circle cx="20" cy="140" r="2"/><circle cx="60" cy="140" r="2"/><circle cx="100" cy="140" r="2"/><circle cx="140" cy="140" r="2"/><circle cx="180" cy="140" r="2"/><circle cx="20" cy="180" r="2"/><circle cx="60" cy="180" r="2"/><circle cx="100" cy="180" r="2"/><circle cx="140" cy="180" r="2"/><circle cx="180" cy="180" r="2"/></svg>
+            </div>
+            <div class="bento-card-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            </div>
+            <div class="bento-card-content">
+              <h3>Квалификация</h3>
+              <p>ИИ отсеивает неподходящих, оставляет горячих</p>
+              <div class="bento-card-cta">Подробнее <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+            </div>
           </div>
-          <div class="bento-card bento-tall">
-            <div class="bento-num">05</div>
-            <h3>Экономия</h3>
-            <p>Не нужно платить зарплату, налоги, арендовать офис. Один франчайзи = один бизнес</p>
+
+          <div class="bento-card">
+            <div class="bento-card-bg">
+              <div class="bento-orb"></div>
+            </div>
+            <div class="bento-card-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+            </div>
+            <div class="bento-card-content">
+              <h3>Масштаб</h3>
+              <p>Один франчайзи = объём отдела из 5 человек</p>
+              <div class="bento-card-cta">Подробнее <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+            </div>
+          </div>
+
+          <div class="bento-card bento-span-2">
+            <div class="bento-card-bg">
+              <svg class="bento-lines" viewBox="0 0 400 200"><line x1="0" y1="20" x2="400" y2="20"/><line x1="0" y1="60" x2="400" y2="60"/><line x1="0" y1="100" x2="400" y2="100"/><line x1="0" y1="140" x2="400" y2="140"/><line x1="0" y1="180" x2="400" y2="180"/></svg>
+            </div>
             <div class="bento-stat">×5</div>
             <div class="bento-stat-label">производительность</div>
+            <div class="bento-card-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            </div>
+            <div class="bento-card-content">
+              <h3>Экономия</h3>
+              <p>Не нужно платить зарплату, налоги, арендовать офис. Один франчайзи = один бизнес</p>
+              <div class="bento-card-cta">Подробнее <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+            </div>
           </div>
+
           <div class="bento-card">
-            <div class="bento-num">06</div>
-            <h3>Контроль</h3>
-            <p>Полная аналитика по каждому клиенту и сделке в личном кабинете</p>
+            <div class="bento-card-bg">
+              <svg class="bento-dots" viewBox="0 0 200 200"><circle cx="30" cy="30" r="3"/><circle cx="100" cy="30" r="3"/><circle cx="170" cy="30" r="3"/><circle cx="30" cy="100" r="3"/><circle cx="100" cy="100" r="3"/><circle cx="170" cy="100" r="3"/><circle cx="30" cy="170" r="3"/><circle cx="100" cy="170" r="3"/><circle cx="170" cy="170" r="3"/></svg>
+            </div>
+            <div class="bento-card-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+            </div>
+            <div class="bento-card-content">
+              <h3>Контроль</h3>
+              <p>Полная аналитика по каждому клиенту и сделке</p>
+              <div class="bento-card-cta">Подробнее <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+            </div>
           </div>
+
           <div class="bento-card">
-            <div class="bento-num">07</div>
-            <h3>Скорость</h3>
-            <p>От заявки до сделки — дни, а не месяцы</p>
+            <div class="bento-card-bg">
+              <div class="bento-orb"></div>
+            </div>
+            <div class="bento-card-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <div class="bento-card-content">
+              <h3>Скорость</h3>
+              <p>От заявки до сделки — дни, а не месяцы</p>
+              <div class="bento-card-cta">Подробнее <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+            </div>
           </div>
+
         </div>
       </div>
 
