@@ -962,7 +962,7 @@ section {
   color: var(--muted);
 }
 
-/* ── Section: МАСШТАБ Full Screen ── */
+/* ── Section: МАСШТАБ ── */
 .scale-section {
   min-height: 100vh;
   min-height: 100dvh;
@@ -972,7 +972,7 @@ section {
   padding: 0 var(--content-pad);
 }
 .scale-inner {
-  max-width: 900px;
+  max-width: 1120px;
   width: 100%;
   text-align: center;
 }
@@ -982,86 +982,139 @@ section {
   font-style: italic;
   color: var(--muted);
   margin-bottom: 8px;
-  line-height: 22px;
 }
 .scale-headline {
   font-size: 56px;
-  line-height: 64px;
+  line-height: 1.1;
   font-weight: 700;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.03em;
   color: #fff;
+  margin-bottom: 16px;
+}
+.scale-headline em {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+}
+.scale-sub {
+  font-size: 16px;
+  color: var(--muted);
+  line-height: 1.6;
+  margin-bottom: 48px;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Flow Boxes */
+.scale-flow-old, .scale-flow-new {
+  max-width: 800px;
+  margin: 0 auto 16px;
+  padding: 28px 32px;
+  border-radius: 12px;
+  text-align: center;
+}
+.scale-flow-old {
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.06);
+}
+.scale-flow-new {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.12);
   margin-bottom: 48px;
 }
-.scale-models {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0;
-  margin-bottom: 40px;
-}
-.scale-model {
-  width: 100%;
-  max-width: 640px;
-  padding: 28px 32px;
-  border-radius: 10px;
-  text-align: left;
-}
-.scale-model--old {
-  background: rgba(255,255,255,0.03);
-  border: 1px solid var(--border-soft);
-  transition: border-color 0.3s ease, background 0.3s ease;
-}
-.scale-model--old:hover {
-  border-color: rgba(255,255,255,0.15);
-  background: rgba(255,255,255,0.05);
-}
-.scale-model--new {
-  background: rgba(255,255,255,0.06);
-  border: 1px solid var(--border);
-  transition: border-color 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
-}
-.scale-model--new:hover {
-  border-color: rgba(255,255,255,0.25);
-  background: rgba(255,255,255,0.08);
-  box-shadow: 0 0 32px rgba(255,255,255,0.04);
-}
-.scale-model-label {
+.scale-flow-label {
   font-size: 11px;
   font-weight: 600;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.14em;
   color: var(--muted);
-  margin-bottom: 12px;
   text-transform: uppercase;
+  margin-bottom: 16px;
 }
-.scale-model--new .scale-model-label {
-  color: #fff;
-}
-.scale-model-flow {
+.scale-flow-label--new { color: #fff; }
+.scale-flow-steps {
   display: flex;
   align-items: center;
+  justify-content: center;
   flex-wrap: wrap;
-  gap: 6px;
+  gap: 8px;
   font-size: 15px;
-  font-weight: 400;
-  color: rgba(255,255,255,0.45);
-  letter-spacing: -0.01em;
+  color: rgba(255,255,255,0.4);
 }
-.scale-model--new .scale-model-flow {
-  color: rgba(255,255,255,0.7);
-}
-.scale-arrow {
-  color: rgba(255,255,255,0.2);
-  font-size: 14px;
-}
-.scale-model--new .scale-arrow {
-  color: rgba(255,255,255,0.35);
-}
-.scale-final {
-  color: #fff;
+.scale-flow-step--new { color: rgba(255,255,255,0.7); }
+.scale-flow-step--final { color: #fff; font-weight: 700; }
+.scale-flow-arrow { color: rgba(255,255,255,0.15); font-size: 13px; }
+.scale-flow-arrow--new { color: rgba(255,255,255,0.3); }
+
+/* Bento Grid */
+.scale-bento { margin-bottom: 40px; }
+.scale-bento-label {
+  font-size: 11px;
   font-weight: 600;
+  letter-spacing: 0.14em;
+  color: var(--muted);
+  text-transform: uppercase;
+  margin-bottom: 20px;
 }
-.scale-divider {
-  font-size: 24px;
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  text-align: left;
+}
+.bento-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+  transition: all 0.3s ease;
+}
+.bento-card:hover {
+  border-color: rgba(255,255,255,0.2);
+  transform: translateY(-2px);
+}
+.bento-tall { grid-row: span 2; }
+.bento-glow { background: var(--card-glow-bg); border-color: rgba(255,255,255,0.08); }
+.bento-num {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+  margin-bottom: 12px;
+}
+.bento-card h3 {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: #fff;
+  margin-bottom: 8px;
+}
+.bento-card p {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+.bento-stat {
+  font-size: 48px;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: -0.03em;
+  margin-top: 16px;
+  line-height: 1;
+}
+.bento-stat-label {
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 4px;
+}
+
+.scale-bottom {
+  font-size: 14px;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  text-transform: uppercase;
+}
+.scale-bottom strong { color: #fff; font-weight: 700; }
   color: rgba(255,255,255,0.3);
   padding: 12px 0;
 }
@@ -2337,58 +2390,97 @@ body.menu-open { overflow: hidden; }
     </div>
   </section>
 
-  <!-- МАСШТАБ — Сравнение -->
+  <!-- МАСШТАБ -->
   <section class="scale-section bg-zoom" style="background-image: url('bg-7.jpg'); background-position: center bottom 25%; background-repeat: no-repeat; position: relative;">
-    <div style="position: absolute; inset: 0; background: rgba(0,0,0,0.7); z-index: 0;"></div>
+    <div style="position: absolute; inset: 0; background: rgba(0,0,0,0.75); z-index: 0;"></div>
     <div class="scale-inner" style="position: relative; z-index: 1;">
-      <div class="scale-label appear appear--soft" style="--d:0.1s">03</div>
-      <div class="scale-headline appear appear--mask" style="--d:0.2s">МАСШТАБ</div>
 
-      <!-- Comparison Grid -->
-      <div class="scale-compare appear appear--scale" style="--d:0.3s">
-        
-        <!-- Left: Old Model -->
-        <div class="scale-compare-col">
-          <div class="scale-compare-label">ОБЫЧНАЯ МОДЕЛЬ</div>
-          <div class="scale-compare-steps">
-            <div class="scale-step">Менеджер</div>
-            <div class="scale-arrow">→</div>
-            <div class="scale-step">звонок</div>
-            <div class="scale-arrow">→</div>
-            <div class="scale-step">разговор</div>
-            <div class="scale-arrow">→</div>
-            <div class="scale-step">следующий звонок</div>
-            <div class="scale-arrow">→</div>
-            <div class="scale-step">следующий менеджер</div>
-          </div>
+      <div class="scale-label appear" style="--d:0.1s">03</div>
+      <h2 class="scale-headline appear" style="--d:0.2s">
+        Масштабируй<br>свои <em>возможности</em>
+      </h2>
+      <p class="scale-sub appear" style="--d:0.3s">
+        Обычный подход растёт только за счёт людей.<br>
+        Наш — за счёт технологий.
+      </p>
+
+      <!-- Old Model Flow -->
+      <div class="scale-flow-old appear" style="--d:0.4s">
+        <div class="scale-flow-label">ОБЫЧНАЯ МОДЕЛЬ</div>
+        <div class="scale-flow-steps">
+          <div class="scale-flow-step">Менеджер</div>
+          <div class="scale-flow-arrow">→</div>
+          <div class="scale-flow-step">звонок</div>
+          <div class="scale-flow-arrow">→</div>
+          <div class="scale-flow-step">разговор</div>
+          <div class="scale-flow-arrow">→</div>
+          <div class="scale-flow-step">следующий звонок</div>
+          <div class="scale-flow-arrow">→</div>
+          <div class="scale-flow-step">следующий менеджер</div>
         </div>
-
-        <!-- Divider -->
-        <div class="scale-compare-divider">
-          <div class="scale-compare-line"></div>
-          <div class="scale-compare-vs">VS</div>
-          <div class="scale-compare-line"></div>
-        </div>
-
-        <!-- Right: Our Model -->
-        <div class="scale-compare-col scale-compare-col--new">
-          <div class="scale-compare-label scale-compare-label--new">НАША МОДЕЛЬ</div>
-          <div class="scale-compare-steps">
-            <div class="scale-step scale-step--new">ИИ</div>
-            <div class="scale-arrow scale-arrow--new">→</div>
-            <div class="scale-step scale-step--new">тысячи контактов</div>
-            <div class="scale-arrow scale-arrow--new">→</div>
-            <div class="scale-step scale-step--new">выявление потребности</div>
-            <div class="scale-arrow scale-arrow--new">→</div>
-            <div class="scale-step scale-step--new">квалификация</div>
-            <div class="scale-arrow scale-arrow--new">→</div>
-            <div class="scale-step scale-step--final">сделка</div>
-          </div>
-        </div>
-
       </div>
 
-      <div class="scale-bottom appear appear--soft" style="--d:0.5s">
+      <!-- Our Model Flow -->
+      <div class="scale-flow-new appear" style="--d:0.5s">
+        <div class="scale-flow-label scale-flow-label--new">НАША МОДЕЛЬ</div>
+        <div class="scale-flow-steps">
+          <div class="scale-flow-step scale-flow-step--new">ИИ</div>
+          <div class="scale-flow-arrow scale-flow-arrow--new">→</div>
+          <div class="scale-flow-step scale-flow-step--new">тысячи контактов</div>
+          <div class="scale-flow-arrow scale-flow-arrow--new">→</div>
+          <div class="scale-flow-step scale-flow-step--new">выявление потребности</div>
+          <div class="scale-flow-arrow scale-flow-arrow--new">→</div>
+          <div class="scale-flow-step scale-flow-step--new">квалификация</div>
+          <div class="scale-flow-arrow scale-flow-arrow--new">→</div>
+          <div class="scale-flow-step scale-flow-step--final">сделка</div>
+        </div>
+      </div>
+
+      <!-- Bento Grid: Advantages -->
+      <div class="scale-bento appear" style="--d:0.6s">
+        <div class="scale-bento-label">ПРЕИМУЩЕСТВА НАШЕЙ МОДЕЛИ</div>
+        <div class="bento-grid">
+          <div class="bento-card bento-glow">
+            <div class="bento-num">01</div>
+            <h3>ИИ-поиск</h3>
+            <p>Система анализирует тысячи компаний и находит тех, кому реально нужна техника</p>
+          </div>
+          <div class="bento-card">
+            <div class="bento-num">02</div>
+            <h3>Автоматизация</h3>
+            <p>Робот обрабатывает входящие заявки 24/7 без выходных и больничных</p>
+          </div>
+          <div class="bento-card bento-glow">
+            <div class="bento-num">03</div>
+            <h3>Квалификация</h3>
+            <p>ИИ отсеивает неподходящих и оставляет только горячих клиентов</p>
+          </div>
+          <div class="bento-card">
+            <div class="bento-num">04</div>
+            <h3>Масштаб</h3>
+            <p>Один франчайзи обрабатывает объём, на который раньше нужен отдел из 5 человек</p>
+          </div>
+          <div class="bento-card bento-tall">
+            <div class="bento-num">05</div>
+            <h3>Экономия</h3>
+            <p>Не нужно платить зарплату, налоги, арендовать офис. Один франчайзи = один бизнес</p>
+            <div class="bento-stat">×5</div>
+            <div class="bento-stat-label">производительность</div>
+          </div>
+          <div class="bento-card">
+            <div class="bento-num">06</div>
+            <h3>Контроль</h3>
+            <p>Полная аналитика по каждому клиенту и сделке в личном кабинете</p>
+          </div>
+          <div class="bento-card">
+            <div class="bento-num">07</div>
+            <h3>Скорость</h3>
+            <p>От заявки до сделки — дни, а не месяцы</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="scale-bottom appear" style="--d:0.7s">
         МЫ АВТОМАТИЗИРОВАЛИ САМУЮ МАСШТАБНУЮ ЧАСТЬ — <strong>ПОИСК И КВАЛИФИКАЦИЮ</strong>.
       </div>
 
