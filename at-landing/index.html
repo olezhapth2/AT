@@ -1898,7 +1898,7 @@ section {
 }
 .partners-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
   gap: 16px;
   margin-bottom: 60px;
 }
@@ -1908,7 +1908,9 @@ section {
   border: 1px solid var(--glass-border);
   background: rgba(8,10,9,0.6);
   backdrop-filter: blur(8px);
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   transition: border-color 0.2s ease, background 0.2s ease;
 }
 .partner-pill:hover {
@@ -1916,6 +1918,11 @@ section {
   background: rgba(20,22,21,0.8);
 }
 .partner-pill:active { transform: scale(0.97); transition-duration: 0.1s; }
+.partner-logo {
+  width: 100%;
+  max-width: 160px;
+  height: 40px;
+}
 .partner-pill .name {
   font-size: 14px;
   font-weight: 700;
@@ -3017,12 +3024,48 @@ body.menu-open { overflow: hidden; }
 
       <div class="partners-heading appear appear--soft" style="--d:0.6s">С нами уже работают крупные лизинговые компании</div>
       <div class="partners-grid">
-        <div class="partner-pill appear appear--scale" style="--d:0.65s"><div class="name">ВТБ</div><div class="sub">ЛИЗИНГ</div></div>
-        <div class="partner-pill appear appear--scale" style="--d:0.7s"><div class="name">АЛЬФА</div><div class="sub">ЛИЗИНГ</div></div>
-        <div class="partner-pill appear appear--scale" style="--d:0.75s"><div class="name">ГАЗПРОМБАНК</div><div class="sub">АВТОЛИЗИНГ</div></div>
-        <div class="partner-pill appear appear--scale" style="--d:0.8s"><div class="name">ЕВРОПЛАН</div></div>
-        <div class="partner-pill appear appear--scale" style="--d:0.85s"><div class="name">ФЛИТ</div><div class="sub">АВТО ЛИЗИНГ</div></div>
-        <div class="partner-pill appear appear--scale" style="--d:0.9s"><div class="name">CARCADE</div></div>
+        <!-- ВТБ Лизинг -->
+        <div class="partner-pill appear appear--scale" style="--d:0.65s">
+          <svg viewBox="0 0 200 50" fill="none" xmlns="http://www.w3.org/2000/svg" class="partner-logo">
+            <text x="10" y="22" fill="white" font-family="Arial, sans-serif" font-weight="800" font-size="22" letter-spacing="2">ВТБ</text>
+            <text x="10" y="40" fill="white" font-family="Arial, sans-serif" font-weight="400" font-size="11" letter-spacing="4" opacity="0.5">ЛИЗИНГ</text>
+          </svg>
+        </div>
+        <!-- Альфа Лизинг -->
+        <div class="partner-pill appear appear--scale" style="--d:0.7s">
+          <svg viewBox="0 0 200 50" fill="none" xmlns="http://www.w3.org/2000/svg" class="partner-logo">
+            <path d="M30 10 L10 40 L20 40 L30 18 L40 40 L50 40 L30 10Z" fill="white" opacity="0.9"/>
+            <text x="60" y="22" fill="white" font-family="Arial, sans-serif" font-weight="700" font-size="18" letter-spacing="1">АЛЬФА</text>
+            <text x="60" y="40" fill="white" font-family="Arial, sans-serif" font-weight="400" font-size="11" letter-spacing="4" opacity="0.5">ЛИЗИНГ</text>
+          </svg>
+        </div>
+        <!-- Газпромбанк Автолизинг -->
+        <div class="partner-pill appear appear--scale" style="--d:0.75s">
+          <svg viewBox="0 0 280 50" fill="none" xmlns="http://www.w3.org/2000/svg" class="partner-logo">
+            <text x="10" y="22" fill="white" font-family="Arial, sans-serif" font-weight="700" font-size="16" letter-spacing="0.5">ГАЗПРОМБАНК</text>
+            <text x="10" y="40" fill="white" font-family="Arial, sans-serif" font-weight="400" font-size="11" letter-spacing="3" opacity="0.5">АВТОЛИЗИНГ</text>
+          </svg>
+        </div>
+        <!-- Европлан -->
+        <div class="partner-pill appear appear--scale" style="--d:0.8s">
+          <svg viewBox="0 0 200 50" fill="none" xmlns="http://www.w3.org/2000/svg" class="partner-logo">
+            <circle cx="25" cy="25" r="12" stroke="white" stroke-width="2" fill="none" opacity="0.6"/>
+            <text x="45" y="30" fill="white" font-family="Arial, sans-serif" font-weight="700" font-size="18" letter-spacing="1">ЕВРОПЛАН</text>
+          </svg>
+        </div>
+        <!-- Флит Авто Лизинг -->
+        <div class="partner-pill appear appear--scale" style="--d:0.85s">
+          <svg viewBox="0 0 200 50" fill="none" xmlns="http://www.w3.org/2000/svg" class="partner-logo">
+            <text x="10" y="22" fill="white" font-family="Arial, sans-serif" font-weight="800" font-size="20" letter-spacing="3">ФЛИТ</text>
+            <text x="10" y="40" fill="white" font-family="Arial, sans-serif" font-weight="400" font-size="11" letter-spacing="3" opacity="0.5">АВТО ЛИЗИНГ</text>
+          </svg>
+        </div>
+        <!-- Carcade -->
+        <div class="partner-pill appear appear--scale" style="--d:0.9s">
+          <svg viewBox="0 0 200 50" fill="none" xmlns="http://www.w3.org/2000/svg" class="partner-logo">
+            <text x="10" y="32" fill="white" font-family="Arial, sans-serif" font-weight="800" font-size="22" letter-spacing="2">CARCADE</text>
+          </svg>
+        </div>
       </div>
 
       <div class="minuses-heading appear appear--soft" style="--d:0.95s">Минусы франшизы. Без ретуши.</div>
