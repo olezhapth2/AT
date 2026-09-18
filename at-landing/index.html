@@ -3306,8 +3306,14 @@ function submitForm(e) {
 
   function update() {
     vh = window.innerHeight;
+    var isMobile = vh < 800;
     for (var i = 0; i < els.length; i++) {
       var el = els[i];
+      if (isMobile && el.closest('.bento-grid')) {
+        el.style.filter = '';
+        el.style.opacity = '';
+        continue;
+      }
       var rect = el.getBoundingClientRect();
       var center = (rect.top + rect.height / 2) / vh;
       var blur = 0;
