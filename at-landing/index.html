@@ -2713,7 +2713,7 @@ body.menu-open { overflow: hidden; }
           </svg>
         </div>
         <div>
-          <form class="cta-form appear appear--soft" style="--d:0.5s" onsubmit="submitForm(event)">
+          <form class="cta-form appear appear--soft" style="--d:0.5s" onsubmit="submitForm(event)" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
             <div class="form-group">
               <label>Имя</label>
               <input type="text" placeholder="Ваше имя" required>
@@ -2908,9 +2908,12 @@ body.menu-open { overflow: hidden; }
   }
 })();
 
+var FORMSPREE_ID = 'YOUR_FORM_ID';
+
 function submitForm(e) {
   e.preventDefault();
   var form = e.target;
+  var btn = form.querySelector('button');
   var name = form.querySelector('input[type="text"]').value.trim();
   var phone = form.querySelector('input[type="tel"]').value.trim();
   var telegram = form.querySelectorAll('input[type="text"]')[1].value.trim();
@@ -2918,20 +2921,35 @@ function submitForm(e) {
 
   if (!name || !phone) return;
 
-  var subject = encodeURIComponent('Новая заявка с лендинга AT');
-  var body = encodeURIComponent(
-    'Йоооо брат, у тебя заявочка!\n\n' +
-    'Имя: ' + name + '\n' +
-    'Телефон: ' + phone + '\n' +
-    (telegram ? 'Telegram: ' + telegram + '\n' : '') +
-    (comment ? 'Комментарий: ' + comment + '\n' : '')
-  );
+  btn.textContent = 'ОТПРАВЛЯЕМ...';
+  btn.disabled = true;
 
-  window.location.href = 'mailto:artyom.tonnikov@gmail.com?subject=' + subject + '&body=' + body;
+  var data = {
+    _subject: 'Новая заявка с лендинга AT',
+    _template: 'table',
+    'Имя': name,
+    'Телефон': phone,
+    'Telegram': telegram || 'не указан',
+    'Комментарий': comment || 'нет',
+    'Сообщение': 'Йоооо брат, у тебя заявочка!'
+  };
 
-  form.querySelector('button').textContent = 'Йоооо брат, заявочка улетела!';
-  form.querySelector('button').disabled = true;
-  form.querySelector('button').style.opacity = '0.6';
+  fetch('https://formspree.io/f/' + FORMSPREE_ID, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(data)
+  }).then(function(res) {
+    if (res.ok) {
+      btn.textContent = 'ЙОООО БРАТ, ЗАЯВОЧКА УЛЕТЕЛА!';
+      form.reset();
+    } else {
+      btn.textContent = 'ОШИБКА. ПОПРОБУЙТЕ ЕЩЁ';
+      btn.disabled = false;
+    }
+  }).catch(function() {
+    btn.textContent = 'ОШИБКА. ПОПРОБУЙТЕ ЕЩЁ';
+    btn.disabled = false;
+  });
 }
 </script>
 </body>
