@@ -2190,6 +2190,17 @@ body.menu-open { overflow: hidden; }
   transition: all 0.3s;
 }
 .type-backdrop.open { opacity: 1; visibility: visible; }
+
+/* ── Typography Variable Overrides ── */
+.hero h1 { font-size: var(--hero-title-size) !important; line-height: var(--line-height-title) !important; letter-spacing: var(--letter-spacing-title) !important; }
+.problem-headline, .case-headline, .how-headline, .econ-headline { font-size: var(--section-title-size) !important; line-height: var(--line-height-title) !important; letter-spacing: var(--letter-spacing-title) !important; }
+.hero-lede, .case-sub, .econ-sub, .how-sub, .problem-sub { font-size: var(--section-sub-size) !important; line-height: var(--line-height-body) !important; }
+.problem-card h3, .case-card-title, .phase-label, .how-card h3, .scale-compare-label { font-size: var(--card-title-size) !important; }
+.problem-card p, .how-card p, .case-card-text, .phase-desc { font-size: var(--card-text-size) !important; line-height: var(--line-height-body) !important; }
+.glass-card, .problem-card, .how-card, .econ-card { padding: var(--card-padding) !important; }
+.section-inner { padding-top: var(--section-padding) !important; padding-bottom: var(--section-padding) !important; }
+.case-label, .econ-label, .scale-label, .how-label { font-size: var(--tiny-size) !important; }
+.btn, .nav-pill { font-size: var(--body-size) !important; }
 </style>
 </head>
 <body>
