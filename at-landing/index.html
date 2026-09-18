@@ -80,7 +80,7 @@ section {
 .section-inner {
   max-width: var(--content-max);
   margin: 0 auto;
-  padding: var(--section-gap) 0;
+  padding: var(--section-padding, 120px) 0;
 }
 
 
@@ -104,7 +104,7 @@ section {
   align-items: center;
   gap: 9px;
   justify-self: start;
-  font-size: 16px;
+  font-size: var(--body-size, 16px);
   font-weight: 600;
   letter-spacing: -0.03em;
   color: #fff;
@@ -339,7 +339,7 @@ section {
   max-width: 520px;
   margin: 0 auto 28px;
   color: var(--muted);
-  font-size: 18px;
+  font-size: var(--section-sub-size, 18px);
   font-weight: 400;
   line-height: 28px;
   letter-spacing: -0.01em;
@@ -356,7 +356,7 @@ section {
   background: var(--glass);
   border: 1px solid var(--glass-border);
   border-radius: 14px;
-  padding: 28px 26px;
+  padding: var(--card-padding, 28px) 26px;
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   box-shadow: 0 4px 32px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.04);
@@ -540,7 +540,7 @@ section {
   opacity: 0.9;
 }
 .problem-card h3 {
-  font-size: 14px;
+  font-size: var(--card-title-size, 14px);
   font-weight: 700;
   letter-spacing: 0.06em;
   color: #fff;
@@ -548,7 +548,7 @@ section {
   line-height: 20px;
 }
 .problem-card p {
-  font-size: 14px;
+  font-size: var(--card-text-size, 14px);
   color: var(--muted);
   line-height: 20px;
 }
@@ -569,21 +569,21 @@ section {
 
 /* ── Section: Case ── */
 .case-headline {
-  font-size: 40px;
-  line-height: 48px;
+  font-size: var(--section-title-size, 40px);
+  line-height: var(--line-height-title, 1.15);
   font-weight: 700;
-  letter-spacing: -0.02em;
+  letter-spacing: var(--letter-spacing-title, -0.02em);
   color: #fff;
   margin-bottom: 12px;
 }
 .case-sub {
-  font-size: 16px;
+  font-size: var(--section-sub-size, 16px);
   color: var(--muted);
   margin-bottom: 24px;
   max-width: 520px;
 }
 .case-label {
-  font-size: 11px;
+  font-size: var(--tiny-size, 11px);
   font-weight: 600;
   letter-spacing: 0.14em;
   color: var(--muted);
@@ -3157,7 +3157,7 @@ function submitForm(e) {
 // ── Font Pairs ──
 var fontPairs = [
   { ui: 'Inter', serif: 'Instrument Serif', label: 'Inter + Instrument' },
-  { ui: 'Inter', serif: 'Playfair Display', label: 'Inter + Playfair' },
+  { ui: 'Inter', serif: 'Playfair Display', label: 'Inter + Playfair', uiWeight: '400,700', serifWeight: '400,700,900' },
   { ui: 'Manrope', serif: 'Cormorant Garamond', label: 'Manrope + Cormorant' },
   { ui: 'DM Sans', serif: 'Noto Serif', label: 'DM Sans + Noto Serif' },
   { ui: 'Source Sans 3', serif: 'Merriweather', label: 'Source Sans + Merriweather' }
