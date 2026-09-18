@@ -2713,7 +2713,7 @@ body.menu-open { overflow: hidden; }
           </svg>
         </div>
         <div>
-          <form class="cta-form appear appear--soft" style="--d:0.5s" onsubmit="event.preventDefault(); this.querySelector('button').textContent='ЗАЯВКА ОТПРАВЛЕНА'; this.querySelector('button').disabled=true;">
+          <form class="cta-form appear appear--soft" style="--d:0.5s" onsubmit="submitForm(event)">
             <div class="form-group">
               <label>Имя</label>
               <input type="text" placeholder="Ваше имя" required>
@@ -2907,6 +2907,32 @@ body.menu-open { overflow: hidden; }
     });
   }
 })();
+
+function submitForm(e) {
+  e.preventDefault();
+  var form = e.target;
+  var name = form.querySelector('input[type="text"]').value.trim();
+  var phone = form.querySelector('input[type="tel"]').value.trim();
+  var telegram = form.querySelectorAll('input[type="text"]')[1].value.trim();
+  var comment = form.querySelector('textarea').value.trim();
+
+  if (!name || !phone) return;
+
+  var subject = encodeURIComponent('Новая заявка с лендинга AT');
+  var body = encodeURIComponent(
+    'Йоооо брат, у тебя заявочка!\n\n' +
+    'Имя: ' + name + '\n' +
+    'Телефон: ' + phone + '\n' +
+    (telegram ? 'Telegram: ' + telegram + '\n' : '') +
+    (comment ? 'Комментарий: ' + comment + '\n' : '')
+  );
+
+  window.location.href = 'mailto:artyom.tonnikov@gmail.com?subject=' + subject + '&body=' + body;
+
+  form.querySelector('button').textContent = 'Йоооо брат, заявочка улетела!';
+  form.querySelector('button').disabled = true;
+  form.querySelector('button').style.opacity = '0.6';
+}
 </script>
 </body>
 </html>
