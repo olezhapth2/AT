@@ -218,8 +218,7 @@ section {
   display: flex;
   align-items: flex-end;
   justify-content: center;
-  padding: 8px 24px 0;
-  margin-bottom: 100px;
+  padding: 8px 24px 100px;
   position: relative;
   background-image: url('bg-1.jpg');
   background-size: 80%;
@@ -2205,7 +2204,7 @@ section {
 /* ── Responsive ── */
 @media (max-width: 900px) {
   :root { --content-pad: 20px; --section-gap: 80px; }
-  .header { grid-template-columns: 1fr auto; gap: 8px; }
+  .header { grid-template-columns: 1fr auto auto; gap: 8px; }
   .header-nav { display: none; }
   .burger-btn { display: flex; }
   .about-grid { grid-template-columns: 1fr; gap: 32px; }
