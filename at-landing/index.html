@@ -3307,7 +3307,7 @@ function submitForm(e) {
     var isMobile = vh < 800;
     for (var i = 0; i < els.length; i++) {
       var el = els[i];
-      if (isMobile && el.closest('.bento-grid')) {
+      if (el.closest('.bento-grid')) {
         el.style.filter = '';
         el.style.opacity = '';
         continue;
