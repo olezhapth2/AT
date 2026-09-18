@@ -970,6 +970,8 @@ section {
   align-items: center;
   justify-content: center;
   padding: 0 var(--content-pad);
+  position: relative;
+  overflow: hidden;
 }
 .scale-inner {
   max-width: 1120px;
@@ -1872,6 +1874,8 @@ section {
 /* ── Section: CTA Form ── */
 .cta-section {
   padding-bottom: 80px;
+  position: relative;
+  overflow: hidden;
 }
 .cta-grid {
   display: grid;
@@ -2109,7 +2113,6 @@ body.menu-open .menu-backdrop { opacity: 1; visibility: visible; backdrop-filter
 body.menu-open .header-nav { display: flex; flex-direction: column; position: fixed; inset: 0; z-index: 45; background: transparent; align-items: center; justify-content: center; gap: 12px; padding: 96px 22px 32px; }
 body.menu-open .nav-pill { width: 100%; height: 56px; font-size: 19px; border-radius: 10px; }
 body.menu-open { overflow: hidden; }
-</style>
 
 /* ── Animated Grid Pattern ── */
 .grid-pattern {
@@ -2138,8 +2141,6 @@ body.menu-open { overflow: hidden; }
   0%, 100% { stroke-opacity: 0.03; }
   50% { stroke-opacity: 0.08; }
 }
-.grid-pattern .grid-v line { animation-delay: 0s; }
-.grid-pattern .grid-h line { animation-delay: 2s; }
 </style>
 </head>
 <body>
