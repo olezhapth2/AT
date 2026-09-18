@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://olezhapth2.github.io/AT/at-landing/sitemap.xml
